@@ -45,6 +45,10 @@ testdata/test-3-b: dist/gen
 	mkdir -p testdata
 	./dist/gen 'P' 400000000 > $@
 
+.PHONY: build
+build: dist/ber
+	@ :
+
 .PHONY: test
 test: test-0 test-1 test-2 test-3
 	@ :
