@@ -5,12 +5,12 @@ all: dist/ber dist/gen test
 
 dist/ber: ber.cpp
 	mkdir -p dist
-	g++ --std=c++17 -o dist/ber.exe ber.cpp
+	g++ -std=c++17 -Wall -Wextra -pedantic-errors -o dist/ber.exe ber.cpp
 	mv dist/ber.exe dist/ber
 
 dist/gen: gen.cpp
 	mkdir -p dist
-	g++ --std=c++17 -o dist/gen.exe gen.cpp
+	g++ -std=c++17 -Wall -Wextra -pedantic-errors -o dist/gen.exe gen.cpp
 	mv dist/gen.exe dist/gen
 
 testdata/test-0-a: dist/gen
@@ -79,4 +79,4 @@ test-3: dist/ber testdata/test-3-a testdata/test-3-b
 
 .PHONY: clean
 clean:
-	rm -rf dist testdata
+	rm -rf dist testdata log.txt
